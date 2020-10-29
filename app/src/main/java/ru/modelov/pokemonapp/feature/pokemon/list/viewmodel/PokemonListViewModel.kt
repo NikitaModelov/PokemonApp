@@ -1,19 +1,13 @@
-package ru.modelov.pokemonapp.feature.pokemon.list
+package ru.modelov.pokemonapp.feature.pokemon.list.viewmodel
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import ru.modelov.pokemonapp.feature.pokemon.SingleLiveEvent
 import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
-import ru.modelov.pokemonapp.R
-import ru.modelov.pokemonapp.databinding.PokemonListFragmentBinding
 
-class PokemonListFragment : Fragment() {
+class PokemonListViewModel : ViewModel() {
 
-    private val pokemonsList = listOf(
+    private val pokemonList = mutableListOf(
         Pokemon(
             name = "Пикачу",
             subTitle = "Редкий и милый покемон",
@@ -31,39 +25,23 @@ class PokemonListFragment : Fragment() {
         )
     )
 
-    private lateinit var adapter: PokemonListAdapter
+    var pokemonListLiveData = MutableLiveData<List<Pokemon>>()
+        private set
 
-    private var _binding: PokemonListFragmentBinding? = null
-    private val binding get() = _binding!!
+    var pokemonClickedEvent = SingleLiveEvent<Pokemon>()
+        private set
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = PokemonListFragmentBinding.inflate(inflater, container, false)
-        setAdapter()
-        return binding.root
+    init {
+        pokemonListLiveData.value = pokemonList
     }
 
-    private fun setAdapter() {
-        adapter =
-            PokemonListAdapter { item ->
-                onClickedPokemon(item)
-            }
-        binding.rvPokemon.adapter = adapter
-        adapter.submitList(pokemonsList)
+    fun onClickedPokemon(pokemon: Pokemon) {
+        pokemonClickedEvent(pokemon)
     }
 
-    private fun onClickedPokemon(pokemon: Pokemon) {
-        findNavController().navigate(
-            R.id.action_pokemonListFragment_to_pokemonDetailFragment2,
-            bundleOf("POKEMON" to pokemon)
-        )
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    fun onClickedAddButton() {
+        pokemonListLiveData.value = pokemonList.toMutableList().apply {
+            add(Pokemon("Покемон 1", "тестовый покемон", "jdfbhsdkjbhdsfjhdsf"))
+        }
     }
 }

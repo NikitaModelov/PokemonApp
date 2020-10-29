@@ -1,12 +1,12 @@
-package ru.modelov.pokemonapp.feature.pokemon.list
+package ru.modelov.pokemonapp.feature.pokemon.list.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
 import ru.modelov.pokemonapp.databinding.ItemPokemonBinding
+import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
 
 class PokemonListAdapter(private val onClick: (Pokemon) -> Unit) :
     ListAdapter<Pokemon, PokemonListViewHolder>(object :

@@ -1,4 +1,5 @@
 <resources>
 	<string name="app_name">PokemonApp</string>
     <string name="pokemon_detail_description_label">Описание:</string>
+    <string name="res_but">Добавить покемона</string>
 </resources>
