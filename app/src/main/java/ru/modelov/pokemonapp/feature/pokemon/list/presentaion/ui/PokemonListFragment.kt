@@ -1,4 +1,4 @@
-package ru.modelov.pokemonapp.feature.pokemon.list.ui
+package ru.modelov.pokemonapp.feature.pokemon.list.presentaion.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import ru.modelov.pokemonapp.R
 import ru.modelov.pokemonapp.databinding.PokemonListFragmentBinding
-import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
-import ru.modelov.pokemonapp.feature.pokemon.list.viewmodel.PokemonListViewModel
+import ru.modelov.pokemonapp.feature.pokemon.list.domain.entity.Pokemon
+import ru.modelov.pokemonapp.feature.pokemon.list.presentaion.viewmodel.PokemonListViewModel
 
 class PokemonListFragment : Fragment() {
 

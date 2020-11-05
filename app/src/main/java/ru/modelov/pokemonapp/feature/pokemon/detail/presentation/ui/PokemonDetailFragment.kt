@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import ru.modelov.pokemonapp.databinding.PokemonDetailFragmentBinding
 import ru.modelov.pokemonapp.feature.pokemon.detail.presentation.viewmodel.PokemonDetailViewModel
-import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
+import ru.modelov.pokemonapp.feature.pokemon.list.domain.entity.Pokemon
 
 class PokemonDetailFragment : Fragment() {
 

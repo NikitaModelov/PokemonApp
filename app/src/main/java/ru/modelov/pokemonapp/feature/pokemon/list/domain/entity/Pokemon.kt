@@ -1,4 +1,4 @@
-package ru.modelov.pokemonapp.feature.pokemon.entity
+package ru.modelov.pokemonapp.feature.pokemon.list.domain.entity
 
 import java.io.Serializable
 

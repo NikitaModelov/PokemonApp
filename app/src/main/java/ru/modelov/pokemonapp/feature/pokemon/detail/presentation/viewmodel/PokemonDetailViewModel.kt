@@ -2,7 +2,7 @@ package ru.modelov.pokemonapp.feature.pokemon.detail.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.modelov.pokemonapp.feature.pokemon.entity.Pokemon
+import ru.modelov.pokemonapp.feature.pokemon.list.domain.entity.Pokemon
 
 class PokemonDetailViewModel(
     private val pokemon: Pokemon
